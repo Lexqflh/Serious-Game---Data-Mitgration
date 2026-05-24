@@ -5,7 +5,7 @@ import StrategyScene from './scenes/StrategyScene';
 import ObjectsScene from './scenes/ObjectsScene';
 import TeamSizingScene from './scenes/TeamSizingScene';
 import ResultsScene from './scenes/ResultsScene';
-import '../styles/game.css';
+import './styles/game.css';
 
 const gameConfig = {
   type: Phaser.AUTO,
