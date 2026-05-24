@@ -88,7 +88,7 @@ export default class TeamSizingScene extends Phaser.Scene {
       this.add.text(contentStartX, phaseY + 80, `Est. Duration: ${phaseDuration} weeks`, {
         fontSize: '13px',
         fontFamily: 'Arial, sans-serif',
-        color: '#00A3E0',
+        color: '#667eea',
         fontStyle: 'italic'
       }).setOrigin(0, 0);
     });
@@ -96,12 +96,12 @@ export default class TeamSizingScene extends Phaser.Scene {
     // Sidebar: Final Forecast
     const sidebarX = width - 280;
     this.add.rectangle(sidebarX + 140, height / 2, 280, height - 100, 0xffffff, 0.95)
-      .setStrokeStyle(2, 0x00A3E0);
+      .setStrokeStyle(2, 0x667eea);
 
     this.add.text(sidebarX + 20, 100, 'Final Forecast', {
       fontSize: '16px',
       fontFamily: 'Arial, sans-serif',
-      color: '#00A3E0',
+      color: '#667eea',
       fontStyle: 'bold'
     }).setOrigin(0, 0);
 
@@ -145,8 +145,8 @@ export default class TeamSizingScene extends Phaser.Scene {
       this.scene.start('ObjectsScene', { gameState: this.gameState });
     });
 
-    // Calculate Results button (Accenture Teal)
-    const calcButton = this.add.rectangle(centerX + 100, buttonY, 160, 40, 0x00A3E0);
+    // Calculate Results button
+    const calcButton = this.add.rectangle(centerX + 100, buttonY, 160, 40, 0x27ae60);
     calcButton.setInteractive({ useHandCursor: true });
     this.add.text(centerX + 100, buttonY, 'Calculate →', {
       fontSize: '16px',
@@ -193,7 +193,7 @@ export default class TeamSizingScene extends Phaser.Scene {
       fontStyle: 'bold'
     }).setOrigin(0.5, 0.5);
 
-    const plusBtn = this.add.rectangle(x + 100, y + 25, 30, 30, 0x00A3E0);
+    const plusBtn = this.add.rectangle(x + 100, y + 25, 30, 30, 0x667eea);
     plusBtn.setInteractive({ useHandCursor: true });
     this.add.text(x + 100, y + 25, '+', {
       fontSize: '20px',

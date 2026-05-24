@@ -1,6 +1,5 @@
 import Phaser from 'phaser';
 import { OBJECTS } from '../config';
-import { updateKPIs } from '../engine/Calculator';
 
 export default class ObjectsScene extends Phaser.Scene {
   constructor() {
@@ -52,7 +51,7 @@ export default class ObjectsScene extends Phaser.Scene {
     this.add.text(tableStartX, listStartY, 'Object | Complexity | Volume | Extraction | Transform | Load', {
       fontSize: '12px',
       fontFamily: 'Arial, sans-serif',
-      color: '#00A3E0',
+      color: '#667eea',
       fontStyle: 'bold'
     }).setOrigin(0, 0);
 
@@ -106,36 +105,32 @@ export default class ObjectsScene extends Phaser.Scene {
     // KPI Panel
     const sidebarX = width - 280;
     this.add.rectangle(sidebarX + 140, height / 2, 280, height - 100, 0xffffff, 0.95)
-      .setStrokeStyle(2, 0x00A3E0);
+      .setStrokeStyle(2, 0x667eea);
 
     this.add.text(sidebarX + 20, 100, 'KPI Summary', {
       fontSize: '16px',
       fontFamily: 'Arial, sans-serif',
-      color: '#00A3E0',
+      color: '#667eea',
       fontStyle: 'bold'
     }).setOrigin(0, 0);
 
-    this.kpiCostText = this.add.text(sidebarX + 20, 150, 'Cost: $0', {
+    this.add.text(sidebarX + 20, 150, 'Cost: $1,250,000', {
       fontSize: '13px',
       fontFamily: 'Arial, sans-serif',
       color: '#2c3e50'
     }).setOrigin(0, 0);
 
-    this.kpiDurationText = this.add.text(sidebarX + 20, 185, 'Duration: 0 weeks', {
+    this.add.text(sidebarX + 20, 185, 'Duration: 18 weeks', {
       fontSize: '13px',
       fontFamily: 'Arial, sans-serif',
       color: '#2c3e50'
     }).setOrigin(0, 0);
 
-    this.kpiScoreText = this.add.text(sidebarX + 20, 220, 'Score: 0', {
+    this.add.text(sidebarX + 20, 220, 'Score: 50', {
       fontSize: '13px',
       fontFamily: 'Arial, sans-serif',
       color: '#2c3e50'
     }).setOrigin(0, 0);
-
-    // Store sidebar position for updates
-    this.sidebarX = sidebarX;
-    this.updateKPIDisplay();
 
     // Navigation buttons
     const buttonY = height - 40;
@@ -154,8 +149,8 @@ export default class ObjectsScene extends Phaser.Scene {
       this.scene.start('StrategyScene', { gameState: this.gameState });
     });
 
-    // Next button (Accenture Teal)
-    const nextButton = this.add.rectangle(centerX + 100, buttonY, 120, 40, 0x00A3E0);
+    // Next button
+    const nextButton = this.add.rectangle(centerX + 100, buttonY, 120, 40, 0x667eea);
     nextButton.setInteractive({ useHandCursor: true });
     this.add.text(centerX + 100, buttonY, 'Next', {
       fontSize: '16px',
@@ -189,36 +184,5 @@ export default class ObjectsScene extends Phaser.Scene {
 
   setTool(objId, toolType, value) {
     this.gameState.objectTools[objId][toolType] = value;
-    // Update KPI display when tool selection changes
-    this.updateKPIDisplay();
-  }
-
-  updateKPIDisplay() {
-    if (this.kpiCostText) {
-      // Build proper gameState structure for calculation
-      const fullGameState = {
-        strategic: {
-          testingEffort: this.gameState.testingEffort || 'medium',
-          cleaningEffort: this.gameState.cleaningEffort || 'high',
-          juniorRatio: this.gameState.juniorRatio || 0.15,
-          offshorePolicy: this.gameState.offshorePolicy || 'partial'
-        },
-        objects: OBJECTS,
-        team: {
-          design: { itPeople: 2, functionalPeople: 2 },
-          build: { itPeople: 3, functionalPeople: 3 },
-          cutover: { itPeople: 2, functionalPeople: 2 }
-        }
-      };
-
-      // Calculate KPIs
-      const kpiResults = updateKPIs(fullGameState);
-      const { cost, duration, score } = kpiResults.kpis;
-
-      // Update display
-      this.kpiCostText.setText(`Cost: $${(cost / 1000000).toFixed(1)}M`);
-      this.kpiDurationText.setText(`Duration: ${duration.toFixed(1)} weeks`);
-      this.kpiScoreText.setText(`Score: ${(score * 100).toFixed(0)}`);
-    }
   }
 }

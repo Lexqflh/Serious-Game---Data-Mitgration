@@ -15,9 +15,9 @@ export default class ResultsScene extends Phaser.Scene {
   }
 
   create() {
-    // Background (Accenture colors)
+    // Background
     const graphics = this.make.graphics({ x: 0, y: 0, add: false });
-    graphics.fillGradientStyle(0x9B1D20, 0x9B1D20, 0x00A3E0, 0x00A3E0, 1);
+    graphics.fillGradientStyle(0x667eea, 0x667eea, 0x764ba2, 0x764ba2, 1);
     graphics.fillRect(0, 0, this.cameras.main.width, this.cameras.main.height);
     graphics.generateTexture('gradientBg2', this.cameras.main.width, this.cameras.main.height);
     graphics.destroy();
@@ -157,25 +157,16 @@ export default class ResultsScene extends Phaser.Scene {
     // Navigation buttons
     const buttonY = height - 40;
 
-    // Play Again button (Accenture Teal)
-    const playAgainBtn = this.add.rectangle(centerX - 100, buttonY, 140, 40, 0x00A3E0);
+    // Play Again button
+    const playAgainBtn = this.add.rectangle(centerX - 100, buttonY, 140, 40, 0x2ecc71);
     playAgainBtn.setInteractive({ useHandCursor: true });
 
-    const playAgainText = this.add.text(centerX - 100, buttonY, 'Play Again', {
+    this.add.text(centerX - 100, buttonY, 'Play Again', {
       fontSize: '16px',
       fontFamily: 'Arial, sans-serif',
       color: '#ffffff',
       fontStyle: 'bold'
     }).setOrigin(0.5, 0.5);
-
-    playAgainBtn.on('pointerover', () => {
-      playAgainBtn.setFillStyle(0x0088B8);
-      this.input.setDefaultCursor('pointer');
-    });
-    playAgainBtn.on('pointerout', () => {
-      playAgainBtn.setFillStyle(0x00A3E0);
-      this.input.setDefaultCursor('default');
-    });
 
     playAgainBtn.on('pointerdown', () => {
       this.scene.start('StrategyScene', {
@@ -195,25 +186,16 @@ export default class ResultsScene extends Phaser.Scene {
       });
     });
 
-    // Share button (Accenture Teal)
-    const shareBtn = this.add.rectangle(centerX + 100, buttonY, 140, 40, 0x00A3E0);
+    // Share button
+    const shareBtn = this.add.rectangle(centerX + 100, buttonY, 140, 40, 0x3498db);
     shareBtn.setInteractive({ useHandCursor: true });
 
-    const shareText = this.add.text(centerX + 100, buttonY, 'Share Results', {
+    this.add.text(centerX + 100, buttonY, 'Share Results', {
       fontSize: '16px',
       fontFamily: 'Arial, sans-serif',
       color: '#ffffff',
       fontStyle: 'bold'
     }).setOrigin(0.5, 0.5);
-
-    shareBtn.on('pointerover', () => {
-      shareBtn.setFillStyle(0x0088B8);
-      this.input.setDefaultCursor('pointer');
-    });
-    shareBtn.on('pointerout', () => {
-      shareBtn.setFillStyle(0x00A3E0);
-      this.input.setDefaultCursor('default');
-    });
 
     shareBtn.on('pointerdown', () => {
       alert('Results: Cost $' + this.results.totalCost + ', Duration ' + this.results.totalDuration + ' weeks, Score ' + Math.round(this.results.score));
