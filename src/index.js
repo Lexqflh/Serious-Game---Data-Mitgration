@@ -10,12 +10,11 @@ import './styles/game.css';
 const gameConfig = {
   type: Phaser.AUTO,
   parent: 'gameContainer',
-  width: 1200,
-  height: 800,
   scale: {
     mode: Phaser.Scale.RESIZE,
     autoCenter: Phaser.Scale.CENTER_BOTH,
-    expandParent: true
+    expandParent: true,
+    fullscreenTarget: 'parent'
   },
   physics: {
     default: 'arcade',
