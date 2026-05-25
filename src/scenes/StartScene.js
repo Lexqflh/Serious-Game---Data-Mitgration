@@ -65,11 +65,11 @@ export default class StartScene extends Phaser.Scene {
       const cardBg = this.add.rectangle(centerX, cardY + 25, contentWidth - 20, 70, 0x2c3e50, 0.9);
       cardBg.setStrokeStyle(2, 0xecf0f1);
 
-      // Objective number
+      // Objective number (Accenture Teal)
       this.add.text(centerX - (contentWidth - 20) / 2 + 15, cardY, `${index + 1}`, {
         fontSize: isMobile ? '18px' : '20px',
         fontFamily: 'Arial, sans-serif',
-        color: '#667eea',
+        color: '#00A3E0',
         fontStyle: 'bold'
       }).setOrigin(0, 0);
 
@@ -93,20 +93,20 @@ export default class StartScene extends Phaser.Scene {
     const buttonText = this.add.text(centerX, buttonY, 'Start Game', {
       fontSize: '18px',
       fontFamily: 'Arial, sans-serif',
-      color: '#667eea',
+      color: '#00A3E0',
       fontStyle: 'bold'
     }).setOrigin(0.5, 0.5);
 
     // Button hover effects
     startButton.on('pointerover', () => {
       startButton.setFillStyle(0xecf0f1);
-      buttonText.setColor('#667eea');
+      buttonText.setColor('#00A3E0');
       this.input.setDefaultCursor('pointer');
     });
 
     startButton.on('pointerout', () => {
       startButton.setFillStyle(0xffffff);
-      buttonText.setColor('#667eea');
+      buttonText.setColor('#00A3E0');
       this.input.setDefaultCursor('default');
     });
 

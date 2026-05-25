@@ -1,4 +1,11 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Data Migration Strategy Simulator</title><style>* {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Migration Strategy Simulator</title>
+    <style>
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -6,23 +13,25 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            background: #2c3e50;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
         }
 
         #gameContainer {
-            width: 100%;
-            max-width: 1400px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            width: 100vw;
+            height: 100vh;
             overflow: hidden;
         }
 
         canvas {
             display: block;
-        }</style><script defer="defer" src="bundle.e1829f663b85b7e7fec8.js"></script><script defer="defer" src="bundle.e1829f663b85b7e7fec8.js"></script><script defer="defer" src="bundle.e1829f663b85b7e7fec8.js"></script><script defer="defer" src="bundle.e1829f663b85b7e7fec8.js"></script><script defer="defer" src="bundle.e1829f663b85b7e7fec8.js"></script><script defer="defer" src="bundle.c5ec751cdd9b4df76620.js"></script></head><body><div id="gameContainer"></div></body></html>
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer"></div>
+    <!-- Phaser and game bundle will be injected here by webpack -->
+</body>
+</html>

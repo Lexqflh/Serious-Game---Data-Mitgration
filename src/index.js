@@ -13,10 +13,9 @@ const gameConfig = {
   width: 1200,
   height: 800,
   scale: {
-    mode: Phaser.Scale.FIT,
+    mode: Phaser.Scale.RESIZE,
     autoCenter: Phaser.Scale.CENTER_BOTH,
-    min: { width: 480, height: 360 },
-    max: { width: 1920, height: 1440 }
+    expandParent: true
   },
   physics: {
     default: 'arcade',
@@ -29,7 +28,7 @@ const gameConfig = {
     TeamSizingScene,
     ResultsScene
   ],
-  backgroundColor: '#f5f5f5'
+  backgroundColor: '#2c3e50'
 };
 
 // Create the game
